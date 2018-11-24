@@ -1,4 +1,4 @@
 #!/bin/sh
 
-node install && node --harmony /app/app.js
+npm install && node --harmony /app/app.js
 

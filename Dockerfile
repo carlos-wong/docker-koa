@@ -16,12 +16,13 @@ RUN apt-get install -y curl grep
 # We'll use the unix utility curl to download the node.js
 # binaries
 
-RUN mkdir -p /app
+RUN mkdir -p /scripts
+
 # We're going to put our app's code in the /app folder
 
 RUN apt-get install -y nodejs npm 
 
-ADD . /app
+ADD . /scripts
 # The ADD command copies the contents of the current 
 # directory (.) into the specified folder in the image
 
@@ -30,7 +31,7 @@ RUN npm i -g supervisor
 # production use, but can effectively crash and restart our
 # node process on file changes during development
 
-ENTRYPOINT /app/boot.sh
+ENTRYPOINT /scripts/boot.sh
 # A container's ENTRYPOINT is the command that will be 
 # executed when a container instance of the image is 
 # started. Since we mounted an executable shell script
