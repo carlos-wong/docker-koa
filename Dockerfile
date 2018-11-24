@@ -3,7 +3,7 @@ FROM debian:jessie
 # to use as a "base" for the new image. Subsequent commands
 # will add "layers" to the final image
 
-MAINTAINER tmlbl
+MAINTAINER carlos<huaixian.huang@gmail.com>
 # It is good practice to sign your images like this
 
 RUN apt-get update
