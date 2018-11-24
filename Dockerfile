@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM ubuntu:18.04
 # The FROM command specifies a local or pull-able image
 # to use as a "base" for the new image. Subsequent commands
 # will add "layers" to the final image
@@ -12,17 +12,14 @@ RUN apt-get update
 # the source lists for your package manager in order to be 
 # able to download and install packages
 
-RUN apt-get install -y curl pgrep
+RUN apt-get install -y curl grep
 # We'll use the unix utility curl to download the node.js
 # binaries
 
 RUN mkdir -p /app
 # We're going to put our app's code in the /app folder
 
-RUN curl http://\
-nodejs.org/dist/v0.11.12/node-v0.11.12-linux-x64.tar.gz|\
-tar -xzvf - --strip-components=1 -C /usr/local
-# 0.11.12 is the recommended node version for running koa
+RUN apt-get install -y nodejs npm 
 
 ADD . /app
 # The ADD command copies the contents of the current 
